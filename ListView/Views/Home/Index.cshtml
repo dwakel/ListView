@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="text-center">
+    <h1 class="display-4">List View</h1>
+    <div>
+        @foreach (var item in Model)
+        {
+            string title = item.title;
+            <a class="list" href="/details/@item.id">
+                <img name="image" src="@item.thumbnailUrl"/>
+                <div class="list-text">
+                    <h3 name="title">Title @item.id</h3>
+                    <p name="text">@title.Substring(0, title.Length < 10? title.Length-1 : 10)</p>
+                </div>
+            </a>
+            <hr />
+        }
+
+    </div>
+</div>
+
+
+<style>
+    .list {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-gap: 2px;
+        float: left;
+    }
+    img {
+        width: 150px;
+        height: 150px;
+        grid-column: 1 / 2;
+    }
+    .list-text {
+        grid-column: 2 / 3;
+        display: grid;
+        grid-template-rows: auto auto;
+        float: left;
+    }
+    h3 {
+        grid-row: 1 / 2;
+    }
+    p {
+        grid-row: 2 / 3;
+    }
+    
+</style>
+

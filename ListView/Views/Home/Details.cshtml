@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Details";
+}
+<h1>@ViewData["Title"]</h1>
+
+<div class="text-center">
+    <h1 class="display-4">List View</h1>
+    <div>
+       
+      
+        <div class="list">
+            <img name="image" src="@Model.url" />
+            <div class="list-text">
+                <h3 name="title">Title @Model.id</h3>
+                <p name="text">@Model.title.Substring(0, Model.title.Length < 10? Model.title.Length-1 : 10)</p>
+                <div>
+                    @Model.title
+                </div>
+            </div>
+        </div>
+        <hr />
+        
+
+    </div>
+</div>
